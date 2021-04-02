@@ -1,3 +1,6 @@
+# Online-Health-Record
+Hi folks, We are in a society where fake doctors evolving, where fake medicines are given to the patients, where people forget their prescriptions while going to next doctor, people may not be able to say about their previous treatment. To overcome all these circumstances, I have got a plan to create an online health record. It consists of a Tablet(screen) with doctor where he can write the prescription in the patient's account. That account is accessed by the credentials of both doctor and the patient. Then doctor may not be fake, he cannot write wrong medicine, and also can know about the patient's previous treatments.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
