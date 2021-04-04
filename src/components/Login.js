@@ -1,12 +1,12 @@
 import React, { useRef, useState } from 'react'
 import { Form, Button, Card, Alert } from 'react-bootstrap'
-import { useAuth } from '../contexts/AuthContext'
 import { Link, useHistory } from 'react-router-dom'
+import { useAuth } from '../contexts/AuthContext'
 
-function LoginSignup() {
+function Login() {
     const emailRef = useRef()
     const passwordRef = useRef()
-    const { signup } = useAuth()
+    const { login } = useAuth()
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
     const [loading, setLoading] = useState(false)
@@ -18,11 +18,11 @@ function LoginSignup() {
         try {
             setError('');
             setLoading(true);
-            await signup(emailRef.current.value, passwordRef.current.value)
+            await login(emailRef.current.value, passwordRef.current.value)
             setSuccess('Yay! Login Successful')
             history.push('/')
         } catch (err) {
-            setError('Failed to create an account');
+            setError('Failed to Login');
         }
         setLoading(false)
     }
@@ -31,7 +31,7 @@ function LoginSignup() {
         <div>
             <Card>
                 <Card.Body>
-                    <h2 className="text-center mb-4">Sign Up</h2>
+                    <h2 className="text-center mb-4">Login</h2>
                     {error && <Alert variant="danger">{ error }</Alert>}
                     {success && <Alert variant="success">{ success }</Alert>}
                     <Form onSubmit={handleSubmit}>
@@ -43,15 +43,18 @@ function LoginSignup() {
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" ref={ passwordRef } required />
                         </Form.Group>
-                        <Button className="w-100" type="submit" onClick={handleSubmit} >Sign Up</Button>
+                        <Button className="w-100" type="submit" onClick={handleSubmit} >Login</Button>
+                        <div className="w-100 text-center mt-2">
+                            Trouble Logging In ? <Link to="/forgot-password">click here</Link>
+                        </div>
                     </Form>
                 </Card.Body>
             </Card>
             <div className="w-100 text-center mt-2">
-                Already have an account? <Link to="/login">Login</Link>
+                Not a prior user? <Link to="/signup">Signup</Link>
             </div>
         </div>
     )
 }
 
-export default LoginSignup
+export default Login
