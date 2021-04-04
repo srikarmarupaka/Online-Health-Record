@@ -14,8 +14,11 @@ function App() {
   return (
     <>
       {/* <h1>Hello</h1> */}
-      {/* <Navbar /> */}
-        <Container className="d-flex align-items-center justify-content-center">
+        {/* <Navbar /> */}
+        <Container
+          className="d-flex align-items-center justify-content-center"
+          style={{minHeight:"100vh"}}
+        >
           <Router>
           <AuthProvider>
             <PrivateRoute exact path="/" component={Dashboard} />
