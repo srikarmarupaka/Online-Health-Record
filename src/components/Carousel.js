@@ -19,7 +19,7 @@ export default function Carosel() {
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src="digitab.jpeg"
+                    src="./images/digitab.jpeg"
                     alt="Second slide"
                   />
 
@@ -31,7 +31,7 @@ export default function Carosel() {
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src="EMR.jpg"
+                    src="./images/EMR.jpg"
                     alt="Third slide"
                   />
 
