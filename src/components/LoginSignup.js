@@ -20,7 +20,7 @@ function LoginSignup() {
             setLoading(true);
             await signup(emailRef.current.value, passwordRef.current.value)
             setSuccess('Yay! Login Successful')
-            history.push('/')
+            history.push('/dashboard')
         } catch (err) {
             setError('Failed to create an account');
         }
