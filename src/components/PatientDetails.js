@@ -1,16 +1,16 @@
-import React from 'react'
-import { Form, Col, Button } from 'react-bootstrap'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { Form, Col, Button } from 'react-bootstrap'
 
-
-export default function AdminDetails() { 
+export default function PatientDetails() {
     const history = useHistory()
 
     function submitAdmin() {
-        history.push('/dashboard/admin')
+        history.push('/dashboard/Patient')
     }
     return (
         <div>
+            
             <Form>
                     <Form.Row>
                         <Form.Group as={Col} controlId="formGridEmail">
@@ -24,10 +24,6 @@ export default function AdminDetails() {
                         </Form.Group>
                     </Form.Row>
 
-                    <Form.Group controlId="formGridAddress1">
-                      <Form.Label>Email</Form.Label>
-                      <Form.Control type="email" placeholder="Email" />
-                    </Form.Group>
                     <Form.Group controlId="formGridAddress1">
                       <Form.Label>Phone Numeber</Form.Label>
                       <Form.Control placeholder="Phone Number" type="text" />

@@ -4,15 +4,15 @@ import { Container } from 'react-bootstrap';
 import Signup from './components/LoginSignup';
 import Dashboard from './components/Dashboard';
 import Admin from './components/Admin';
+import Details from './components/Details';
 import Hospital from './components/Hospital';
 import College from './components/College';
-import Details from './components/AdminDetails';
+import Patient from './components/Patient';
 import UpdateProfile from './components/UpdateProfile';
 import Login from './components/Login';
 import ForgotPassword from './components/ForgotPassword'
 import AuthProvider from './contexts/AuthContext';
-import DBContext from './contexts/dbContext';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute'
 import LandingPage from './components/LandingPage';
 
@@ -32,6 +32,7 @@ function App() {
             <PrivateRoute exact path="/dashboard/admin" component={Admin} />
             <PrivateRoute exact path="/dashboard/Hospital" component={Hospital} />
             <PrivateRoute exact path="/dashboard/College" component={College} />
+            <PrivateRoute exact path="/dashboard/Patient" component={Patient} />
             <PrivateRoute exact path="/update-profile" component={UpdateProfile} />
             <Route exact path="/" component={LandingPage} />
             <Route path="/signup" component={Signup} />

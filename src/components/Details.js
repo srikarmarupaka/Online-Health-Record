@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
-import { Form, Col, Button } from 'react-bootstrap'
+import { Form } from 'react-bootstrap' 
 import AdminDetails from './AdminDetails'
+import PatientDetails from './PatientDetails'
+import HospitalDetails from './HospitalDetails'
+import CollegeDetails from './CollegeDetails'
 
 
 export default function Details() { 
@@ -9,18 +12,20 @@ export default function Details() {
     return (
         <div>
             <Form>
-                <Form.Group as={Col} controlId="formGridState">
-                    <Form.Label>You are</Form.Label>
-                    <Form.Control as="select" defaultValue="Choose..." onChange={(e)=>setType(e.target.value)} >
+                <Form.Group controlId="formGridState">
+                    <Form.Label>Who are you</Form.Label>
+                    <Form.Control as="select"onChange={(e) => setType(e.target.value)} >
+                      <option selected disabled>I am</option>
                       <option>Admin</option>
                       <option>Patient</option>
                       <option>Hospital</option>
                       <option>College</option>
                     </Form.Control>
                 </Form.Group>
-                {type === 'Admin' ? (
-                    <AdminDetails />
-                ) : ('')}
+                {type === 'Admin' && <AdminDetails />}
+                {type === 'Patient' && <PatientDetails />}
+                {type === 'Hospital' && <HospitalDetails />}
+                {type === 'College' && <CollegeDetails />}
             </Form>
         </div>
     )
