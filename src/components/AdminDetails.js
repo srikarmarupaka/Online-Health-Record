@@ -1,41 +1,49 @@
 import React from 'react'
 import { Form, Col, Button } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
-
+import { useForm } from "react-hook-form";
+// import db from '../contexts/dbContext'
+import { db } from '../firebase'
 
 export default function AdminDetails() { 
-    const history = useHistory()
+  const history = useHistory()
+  const {register, handleSubmit, getValues} = useForm()
 
-    function submitAdmin() {
-        history.push('/dashboard/admin')
+    async function submitAdmin() {
+      history.push('/dashboard/admin')
+      const values = getValues()      
+      console.log(values)
+      const res = await db.collection('administration').add(values);
+      console.log('Added document with ID: ', res.id);
     }
     return (
         <div>
-            <Form>
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="formGridEmail">
+            <Form onSubmit={handleSubmit(submitAdmin)}>
+          <Form.Row>
+                        
+                        <Form.Group as={Col}>
                           <Form.Label>First Name</Form.Label>
-                          <Form.Control type="text" placeholder="First Name" />
+                          <Form.Control type="text" placeholder="First Name" {...register('firstname',{required:true})} />
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridPassword">
+                        <Form.Group as={Col}>
                           <Form.Label>Last Name</Form.Label>
-                          <Form.Control type="text" placeholder="Last Name" />
+                          <Form.Control type="text" placeholder="Last Name" {...register('lastname',{required:true})} />
                         </Form.Group>
                     </Form.Row>
 
-                    <Form.Group controlId="formGridAddress1">
+                    <Form.Group>
                       <Form.Label>Email</Form.Label>
-                      <Form.Control type="email" placeholder="Email" />
+                      <Form.Control type="email" placeholder="Email" {...register('email',{required:true})} />
                     </Form.Group>
-                    <Form.Group controlId="formGridAddress1">
+                    <Form.Group>
                       <Form.Label>Phone Numeber</Form.Label>
-                      <Form.Control placeholder="Phone Number" type="text" />
+                      <Form.Control placeholder="Phone Number" type="text" {...register('phone', { required: true })} />
                     </Form.Group>
 
-                    <Form.Group controlId="formGridAddress1">
+                    <Form.Group>
                       <Form.Label>Address</Form.Label>
-                      <Form.Control placeholder="Address" />
+                      <Form.Control placeholder="Address" {...register('address', { required: true })} />
                     </Form.Group>
 
                     <Button variant="success" type="submit" onClick={submitAdmin}>

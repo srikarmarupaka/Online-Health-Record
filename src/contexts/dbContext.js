@@ -24,35 +24,16 @@ export default function DBContext() {
         })
     }
 
-    async function addUsers() {
-       await usersRef.set({
-        'first': 'Alan',
-        'middle': 'Mathison',
-        'last': 'Turing',
-        'born': 1912
-       });
-   }
-    
+    async function addAdmin(admin) {
+        const res = await admimnRef.add({ admin })
+        console.log('Added document with ID: ', res.id);
+    } 
     useEffect(() => {
         getUsers();
     },[])
 
     if(loading) return <h1>Loading...</h1>
     return (
-        <div>
-            <h1>Users</h1>
-            {
-                users.map((user) => (
-                    <div key={user.userid}>
-                        <h2>{user.fullname}</h2>
-                        <p>
-                            {user.email} <br />
-                            {user.phoneNumber} <br />
-                            {user.address} <br />
-                        </p>
-                    </div>
-                ))
-            }
-        </div>
+        addAdmin
     )
 }
