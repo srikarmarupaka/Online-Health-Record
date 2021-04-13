@@ -6,10 +6,12 @@ import Dashboard from './components/Dashboard';
 import Admin from './components/Admin';
 import Hospital from './components/Hospital';
 import College from './components/College';
+import Details from './components/AdminDetails';
 import UpdateProfile from './components/UpdateProfile';
 import Login from './components/Login';
 import ForgotPassword from './components/ForgotPassword'
 import AuthProvider from './contexts/AuthContext';
+import DBContext from './contexts/dbContext';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute'
 import LandingPage from './components/LandingPage';
@@ -25,6 +27,7 @@ function App() {
         >
           <Router>
           <AuthProvider>
+            <Route exact path="/detailform" component={Details} />
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
             <PrivateRoute exact path="/dashboard/admin" component={Admin} />
             <PrivateRoute exact path="/dashboard/Hospital" component={Hospital} />

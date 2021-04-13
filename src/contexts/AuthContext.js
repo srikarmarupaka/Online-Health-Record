@@ -35,14 +35,15 @@ export default function AuthProvider({ children }) {
     }
 
     useEffect(() => {
-        
         const unsunscribe = auth.onAuthStateChanged(user => {
             setCurrentUser(user)
             setLoading(false)
         })
         return unsunscribe
     }, [])
-    const value ={currentUser, signup, login, logout, forgotPassword, updateEmail, updatePassword}
+
+    const value = { currentUser, signup, login, logout, forgotPassword, updateEmail, updatePassword }
+    
     return (
         <AuthContext.Provider value={value}>
             {!loading && children}
