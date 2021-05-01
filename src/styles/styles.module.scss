@@ -15,5 +15,21 @@ $theme-colors: (
   "light":      $light,
 );
 
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
+.coverpicture{
+  position: absolute;
+  img{
+    background-size: cover;
+    top: -100px;
+  }
+}
+
+.section{
+  background-color: #D92D2D;
+}
 

@@ -1,9 +1,11 @@
 import React from 'react'
 import { Form, Button } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
+import { useForm } from "react-hook-form";
 
 export default function Hospital() {
     const history = useHistory()
+    const {register, handleSubmit, getValues} = useForm()
 
     function submitAdmin() {
         history.push('/dashboard/Hospital')
