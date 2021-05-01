@@ -1,6 +1,6 @@
 import React from 'react'
 // import Carousel from './Carousel'
-import styles from '../styles/stles.module.css';
+// import styles from '../styles/stles.module.css';
 
 export default function LandingPage() {
     return (

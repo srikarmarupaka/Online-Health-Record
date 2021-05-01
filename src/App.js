@@ -8,6 +8,7 @@ import Details from './components/Details';
 import Hospital from './components/Hospital';
 import College from './components/College';
 import Patient from './components/Patient';
+import Doctor from './components/Doctor';
 import UpdateProfile from './components/UpdateProfile';
 import Login from './components/Login';
 import ForgotPassword from './components/ForgotPassword'
@@ -31,6 +32,7 @@ function App() {
               <PrivateRoute exact path="/dashboard/Hospital" component={Hospital} />
               <PrivateRoute exact path="/dashboard/College" component={College} />
               <PrivateRoute exact path="/dashboard/Patient" component={Patient} />
+              <PrivateRoute exact path="/dashboard/Doctor" component={Doctor} />
               <PrivateRoute exact path="/update-profile" component={UpdateProfile} />
               <Route exact path="/" component={LandingPage} />
               <Route path="/signup" component={Signup} />

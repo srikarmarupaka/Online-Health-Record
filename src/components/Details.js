@@ -4,6 +4,7 @@ import AdminDetails from './AdminDetails'
 import PatientDetails from './PatientDetails'
 import HospitalDetails from './HospitalDetails'
 import CollegeDetails from './CollegeDetails'
+import DoctorDetails from './DoctorDetails'
 
 
 export default function Details() { 
@@ -20,12 +21,14 @@ export default function Details() {
                       <option>Patient</option>
                       <option>Hospital</option>
                       <option>College</option>
+                      <option>Doctor</option>
                     </Form.Control>
                 </Form.Group>
                 {type === 'Admin' && <AdminDetails />}
                 {type === 'Patient' && <PatientDetails />}
                 {type === 'Hospital' && <HospitalDetails />}
                 {type === 'College' && <CollegeDetails />}
+                {type === 'Doctor' && <DoctorDetails />}
             </Form>
         </div>
     )
