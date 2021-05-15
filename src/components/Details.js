@@ -8,15 +8,15 @@ import DoctorDetails from './DoctorDetails'
 
 
 export default function Details() { 
-    let [type, setType] = useState('')
+    let [type, setType] = useState('I am')
 
     return (
         <div>
             <Form>
                 <Form.Group controlId="formGridState">
                     <Form.Label>Who are you</Form.Label>
-                    <Form.Control as="select"onChange={(e) => setType(e.target.value)} >
-                      <option selected disabled>I am</option>
+                    <Form.Control as="select" onChange={(e) => setType(e.target.value)} defaultValue={type} >
+                      <option disabled>I am</option>
                       <option>Admin</option>
                       <option>Patient</option>
                       <option>Hospital</option>
@@ -24,12 +24,12 @@ export default function Details() {
                       <option>Doctor</option>
                     </Form.Control>
                 </Form.Group>
+            </Form>
                 {type === 'Admin' && <AdminDetails />}
                 {type === 'Patient' && <PatientDetails />}
                 {type === 'Hospital' && <HospitalDetails />}
                 {type === 'College' && <CollegeDetails />}
                 {type === 'Doctor' && <DoctorDetails />}
-            </Form>
         </div>
     )
 }

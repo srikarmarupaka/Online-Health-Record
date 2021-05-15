@@ -8,16 +8,18 @@ export default function Hospital() {
     const history = useHistory()
     const {register, handleSubmit, getValues} = useForm()
 
-    async function submitAdmin() {
-      history.push('/dashboard/hospital')
+    async function submitHospital() {
+      // history.push('/dashboard/hospital')
       const values = getValues()      
       console.log(values)
       const res = await db.collection('hospitals').add(values);
+      console.log(res)
+      if (res) history.push('/dashboard/hospital');
       console.log('Added document with ID: ', res);
     }
     return (
         <div>
-            <Form onSubmit={handleSubmit(submitAdmin)}>
+            <Form onSubmit={handleSubmit(submitHospital)}>
                     <Form.Group controlId="formGridEmail">
                       <Form.Label>Name</Form.Label>
                       <Form.Control type="text" placeholder="Name" {...register('name', { required: true })} />
@@ -33,7 +35,7 @@ export default function Hospital() {
                       <Form.Control placeholder="Address" {...register('address', { required: true })} />
                     </Form.Group>
 
-                    <Button variant="success" type="submit" onClick={submitAdmin}>
+                    <Button variant="success" type="submit" onClick={submitHospital}>
                       Submit
                     </Button>
             </Form>
