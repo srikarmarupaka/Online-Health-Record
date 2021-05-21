@@ -20,6 +20,9 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
+    - name: Codecov
+      uses: codecov/codecov-action@v1.5.0
+
     - name: Checkout repository
     - uses: actions/checkout@v1
     
