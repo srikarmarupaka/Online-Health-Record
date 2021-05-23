@@ -8,16 +8,18 @@ export default function PatientDetails() {
   const history = useHistory()
   const {register,handleSubmit, getValues} = useForm()
 
-    async function submitAdmin() {
-      history.push('/dashboard/Patient')
+    async function submitPatient() {
+      // history.push('/dashboard/Patient')
       const values = getValues()
-      const res = await db().collection('patients').add(values)
+      const res = await db.collection('patients').add(values)
       console.log(res)
+      if(res) history.push('/dashboard/Patient')
+      console.log('Added document with ID: ', res);
     }
     return (
         <div>
             
-            <Form onSubmit={handleSubmit(submitAdmin)}>
+            <Form onSubmit={handleSubmit(submitPatient)}>
                     <Form.Row>
                         <Form.Group as={Col} controlId="formGridEmail">
                           <Form.Label>First Name</Form.Label>
@@ -40,7 +42,7 @@ export default function PatientDetails() {
                       <Form.Control placeholder="Address" {...register('address', {required:true})} />
                     </Form.Group>
 
-                    <Button variant="success" type="submit" onClick={submitAdmin}>
+                    <Button variant="success" type="submit">
                       Submit
                     </Button>
             </Form>

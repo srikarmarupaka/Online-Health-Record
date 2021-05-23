@@ -9,11 +9,11 @@ export default function AdminDetails() {
   const history = useHistory()
   const {register, handleSubmit, getValues} = useForm()
     async function submitAdmin() {
-      history.push('/dashboard/admin')
       const values = getValues()      
       console.log(values)
       const res = await db.collection('administration').add(values);
       console.log('Added document with ID: ', res);
+      history.push('/dashboard/admin')
     }
     return (
         <div>
@@ -43,7 +43,7 @@ export default function AdminDetails() {
                       <Form.Control placeholder="Address" {...register('address', { required: true })} />
                     </Form.Group>
 
-                    <Button variant="success" type="submit" onClick={submitAdmin}>
+                    <Button variant="success" type="submit">
                       Submit
                     </Button>
             </Form>

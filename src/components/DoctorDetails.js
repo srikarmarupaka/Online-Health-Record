@@ -8,17 +8,18 @@ export default function DoctorDetails() {
   const history = useHistory()
   const {register,handleSubmit, getValues} = useForm()
 
-    async function submitAdmin() {
-      history.push('/dashboard/Doctor')
+    async function submitDoctor() {
+      // history.push('/dashboard/Doctor')
       const values = getValues()
-      const res = await db().collection('doctors').add(values)
-      console.log(res)
+      const res = await db.collection('doctors').add(values)
+      if (res) history.push('/dashboard/doctor');
+      console.log('Added document with ID: ', res);
     }
 
     return (
         <div>
             
-            <Form onSubmit={handleSubmit(submitAdmin)}>
+            <Form onSubmit={handleSubmit(submitDoctor)}>
                     <Form.Row>
                         <Form.Group as={Col} controlId="formGridFirstName">
                           <Form.Label>First Name</Form.Label>
@@ -38,10 +39,10 @@ export default function DoctorDetails() {
 
                     <Form.Group controlId="formGridSpecialization">
                       <Form.Label>Specialization</Form.Label>
-                      <Form.Control placeholder="Address" {...register('specialization', {required:true})} />
+                      <Form.Control placeholder="Specialization" {...register('specialization', {required:true})} />
                     </Form.Group>
 
-                    <Button variant="success" type="submit" onClick={submitAdmin}>
+                    <Button variant="success" type="submit" onClick={submitDoctor}>
                       Submit
                     </Button>
             </Form>

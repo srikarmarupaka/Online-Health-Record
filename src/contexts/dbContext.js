@@ -1,7 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { db } from '../firebase'
 
-export default function DBContext() {
+const DBContext = React.createContext()
+export function useAuth() {
+    return useContext(DBContext)
+}
+
+export default function DBProvider({children}) {
     
     const [users, setUsers] = useState([])
     const [loading, setLoading] = useState(false)
@@ -34,6 +39,8 @@ export default function DBContext() {
 
     if(loading) return <h1>Loading...</h1>
     return (
-        addAdmin
+        <DBContext.Provider>
+            {children}
+        </DBContext.Provider>
     )
 }

@@ -35,7 +35,7 @@ export default function Hospital() {
                       <Form.Control placeholder="Address" {...register('address', { required: true })} />
                     </Form.Group>
 
-                    <Button variant="success" type="submit" onClick={submitHospital}>
+                    <Button variant="success" type="submit">
                       Submit
                     </Button>
             </Form>
