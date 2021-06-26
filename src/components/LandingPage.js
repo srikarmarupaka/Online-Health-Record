@@ -1,21 +1,24 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
+// import { Button } from 'react-bootstrap'
 // import Carousel from './Carousel'
 import '../styles/styles.module.scss';
+// import ReactDOM from 'react-dom';
+// import App from '../App';
+import TopBar from './LandingPage/topbar';
+import Headers from './LandingPage/headers';
+import Login from './Login';
 
 export default function LandingPage() {
-    return (
-        <div>
-            <div>
-                <Button variant="primary" className="loginbtn">Login</Button>
-            </div>
-            {/* <div className="coverpicture w-100">
-                <img src="/images/eHr1200.jpeg" alt="Electronic Health Records"/>
-            </div> */}
-            {/* <Carousel /> */}
-            {/* <div className={styles.section}>
-
-            </div> */}
-        </div>
-    )
+  
+  return <>
+    <Login />
+      {/* <TopBar />
+      <Headers /> */}
+    </>
+  // ReactDOM.render(
+  //   <React.StrictMode>
+  //     <App />
+  //   </React.StrictMode>,
+  //   document.getElementById('root')
+  // );
 }
